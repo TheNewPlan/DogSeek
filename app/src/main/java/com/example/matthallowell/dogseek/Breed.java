@@ -32,7 +32,7 @@ public class Breed {
     enum Grooming {Daily, Weekly, Occasional}
     Grooming grooming;
     //How frequent the dog may bark, whether they do it when necessary or not
-    enum BarkingFrequency {Vocal, WhenNecessary}
+    enum BarkingFrequency {Quiet, Vocal, WhenNecessary}
     BarkingFrequency barkingFrequency;
     //The energy level of the breed (this is a generalized thought, no two dogs are the same)
     enum Energy {High, Medium, Low}
