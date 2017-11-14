@@ -31,6 +31,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selectTraitsTextView" />
 
+    <Spinner
+        android:id="@+id/groupSpinner"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/groupTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/groupTextView" />
+
     <TextView
         android:id="@+id/sizeTextView"
         android:layout_width="wrap_content"
@@ -42,6 +52,16 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/groupTextView"
         app:layout_constraintTop_toBottomOf="@+id/groupTextView" />
+
+    <Spinner
+        android:id="@+id/sizeSpinner"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/sizeTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sizeTextView" />
 
     <TextView
         android:id="@+id/coatTextView"
@@ -55,6 +75,16 @@
         app:layout_constraintStart_toStartOf="@id/groupTextView"
         app:layout_constraintTop_toBottomOf="@+id/sizeTextView" />
 
+    <Spinner
+        android:id="@+id/coatSpinner"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/coatTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/coatTextView" />
+
     <TextView
         android:id="@+id/sheddingTextView"
         android:layout_width="wrap_content"
@@ -66,6 +96,17 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/groupTextView"
         app:layout_constraintTop_toBottomOf="@+id/coatTextView" />
+
+    <Spinner
+        android:id="@+id/sheddingSpinner"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/sheddingTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sheddingTextView" />
 
     <TextView
         android:id="@+id/hypoallergenicTextView"
@@ -79,6 +120,16 @@
         app:layout_constraintStart_toStartOf="@id/groupTextView"
         app:layout_constraintTop_toBottomOf="@+id/sheddingTextView" />
 
+    <Switch
+        android:id="@+id/hypoallergenicSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/hypoallergenicTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hypoallergenicTextView" />
+
     <TextView
         android:id="@+id/trainabilityTextView"
         android:layout_width="wrap_content"
@@ -90,6 +141,16 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/groupTextView"
         app:layout_constraintTop_toBottomOf="@+id/hypoallergenicTextView" />
+
+    <Spinner
+        android:id="@+id/trainabilitySpinner"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/trainabilityTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/trainabilityTextView" />
 
     <TextView
         android:id="@+id/groomingTextView"
@@ -103,6 +164,16 @@
         app:layout_constraintStart_toStartOf="@id/groupTextView"
         app:layout_constraintTop_toBottomOf="@+id/trainabilityTextView" />
 
+    <Spinner
+        android:id="@+id/groomingSpinner"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/groomingTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/groomingTextView" />
+
     <TextView
         android:id="@+id/barkingTextView"
         android:layout_width="wrap_content"
@@ -115,6 +186,16 @@
         app:layout_constraintStart_toStartOf="@id/groupTextView"
         app:layout_constraintTop_toBottomOf="@+id/groomingTextView" />
 
+    <Spinner
+        android:id="@+id/barkingSpinner"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/barkingTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/barkingTextView" />
+
     <TextView
         android:id="@+id/energyTextView"
         android:layout_width="wrap_content"
@@ -126,4 +207,14 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/groupTextView"
         app:layout_constraintTop_toBottomOf="@+id/barkingTextView" />
+
+    <Spinner
+        android:id="@+id/energySpinner"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/energyTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/energyTextView" />
 </android.support.constraint.ConstraintLayout>
