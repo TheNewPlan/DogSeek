@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DogSeek.iml" filepath="$PROJECT_DIR$/DogSeek.iml" />
+      <module fileurl="file://C:\Users\Matt Hallowell\AndroidStudioProjects\DogSeek\DogSeek.iml" filepath="C:\Users\Matt Hallowell\AndroidStudioProjects\DogSeek\DogSeek.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Matt Hallowell\AndroidStudioProjects\DogSeek\app\app.iml" filepath="C:\Users\Matt Hallowell\AndroidStudioProjects\DogSeek\app\app.iml" />
     </modules>
   </component>
 </project>

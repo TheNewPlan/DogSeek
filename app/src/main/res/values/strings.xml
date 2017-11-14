@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">DogSeek</string>
+    <string name="select_traits_text">Select Traits</string>
+    <string name="group_text">Group</string>
+    <string name="size_text">Size</string>
+    <string name="coat_text">Coat</string>
+    <string name="shedding_text">Shedding</string>
+    <string name="hypoallergenic_text">Hypoallergenic</string>
+    <string name="trainability_text">Trainability</string>
+    <string name="grooming_text">Grooming</string>
+    <string name="barking_frequency_text">Barking Frequency</string>
+    <string name="energy_text">Energy</string>
 </resources>
