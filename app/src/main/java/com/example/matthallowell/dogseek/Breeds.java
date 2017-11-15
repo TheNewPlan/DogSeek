@@ -26,12 +26,12 @@ public class Breeds {
     /**
      * String resources for the spinner adapters on the main activity
      */
-    public static final String[] GROUPS = {"Herding", "Hound", "NonSporting", "Sporting", "Terrier", "Toy", "Working"};
-    public static final String[] SIZES = {"Small","Medium","Large"};
-    public static final String[] COATS = {"Hairless","Short","Medium","Long"};
-    public static final String[] SHEDDING = {"Seasonal","Infrequent"};
-    public static final String[] TRAINABILITY = {"Eager to Please","Responds Well","Independent"};
-    public static final String[] GROOMINGFREQUENCIES = {"Daily","Weekly","Occasional"};
-    public static final String[] BARKINGFREQUENCIES = {"Quiet","When Necessary","Vocal"};
-    public static final String[] ENERGYLEVELS = {"Low","Medium","High"};
+    public static final String[] GROUPS = {"Any","Herding", "Hound", "NonSporting", "Sporting", "Terrier", "Toy", "Working"};
+    public static final String[] SIZES = {"Any","Small","Medium","Large"};
+    public static final String[] COATS = {"Any","Hairless","Short","Medium","Long"};
+    public static final String[] SHEDDING = {"Any","Seasonal","Infrequent"};
+    public static final String[] TRAINABILITY = {"Any","Eager to Please","Responds Well","Independent"};
+    public static final String[] GROOMINGFREQUENCIES = {"Any","Daily","Weekly","Occasional"};
+    public static final String[] BARKINGFREQUENCIES = {"Any","Quiet","When Necessary","Vocal"};
+    public static final String[] ENERGYLEVELS = {"Any","Low","Medium","High"};
 }
