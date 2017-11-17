@@ -6,7 +6,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import static com.example.matthallowell.dogseek.Breed.barkingList;
@@ -19,7 +21,7 @@ import static com.example.matthallowell.dogseek.Breed.sizeList;
 import static com.example.matthallowell.dogseek.Breed.trainabilityList;
 
 
-public class TraitsActivity extends AppCompatActivity {
+public class TraitsActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
     private static final String TAG = "TraitsActivity";
     static Breed.Group groupSelected;
@@ -106,6 +108,10 @@ public class TraitsActivity extends AppCompatActivity {
                         Log.d(TAG, "sheddingSpinner: unselected");
                     }
                 });
+        final Switch hypoallergenicSwitch = findViewById(R.id.hypoallergenicSwitch);
+        hypoallergenicSwitch.setOnCheckedChangeListener(this);
+
+
         final Spinner trainabilitySpinner = findViewById(R.id.trainabilitySpinner);
         ArrayAdapter<Breed.Trainability> trainabilityAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, trainabilityList);
         trainabilityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -178,10 +184,27 @@ public class TraitsActivity extends AppCompatActivity {
 
     }
     public void debugOpts(){
-        Toast.makeText(this, "Group: " + groupSelected + "\n" + "Size: " + sizeSelected + "\n" + "Coat: " + coatSelected + "\n" + "Shedding: " + sheddingSelected + "\n" + "Trainability: " + trainabilitySelected + "\n" + "Grooming: " + groomingSelected + "\n" + "Barking: " + barkingSelected + "\n" + "Energy: " + energySelected, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Group: " + groupSelected + "\n" + "Size: " + sizeSelected + "\n" + "Coat: " + coatSelected + "\n" + "Shedding: " + sheddingSelected + "\n" + "isHypoallergenic: " + isHypoallergenic + "\n" + "Trainability: " + trainabilitySelected + "\n" + "Grooming: " + groomingSelected + "\n" + "Barking: " + barkingSelected + "\n" + "Energy: " + energySelected, Toast.LENGTH_LONG).show();
     }
 
     public static void filterDogs(){
 
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        try{
+            if(b == true){
+                isHypoallergenic = true;
+                debugOpts();
+            }
+            else{
+                isHypoallergenic = false;
+                debugOpts();
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
