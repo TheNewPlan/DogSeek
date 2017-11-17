@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DogSeek</string>
+    <string name="app_name">Dog Seek</string>
     <string name="select_traits_text">Select Traits</string>
     <string name="group_text">Group</string>
     <string name="size_text">Size</string>

@@ -18,9 +18,9 @@ import static com.example.matthallowell.dogseek.Breed.sizeList;
 import static com.example.matthallowell.dogseek.Breed.trainabilityList;
 
 
-public class MainActivity extends AppCompatActivity {
+public class TraitsActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "TraitsActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
