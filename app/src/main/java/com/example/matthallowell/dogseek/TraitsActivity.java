@@ -184,7 +184,7 @@ public class TraitsActivity extends AppCompatActivity implements CompoundButton.
 
     }
     public void debugOpts(){
-        Toast.makeText(this, "Group: " + groupSelected + "\n" + "Size: " + sizeSelected + "\n" + "Coat: " + coatSelected + "\n" + "Shedding: " + sheddingSelected + "\n" + "isHypoallergenic: " + isHypoallergenic + "\n" + "Trainability: " + trainabilitySelected + "\n" + "Grooming: " + groomingSelected + "\n" + "Barking: " + barkingSelected + "\n" + "Energy: " + energySelected, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Group: " + groupSelected + "\n" + "Size: " + sizeSelected + "\n" + "Coat: " + coatSelected + "\n" + "Shedding: " + sheddingSelected + "\n" + "isHypoallergenic: " + isHypoallergenic + "\n" + "Trainability: " + trainabilitySelected + "\n" + "Grooming: " + groomingSelected + "\n" + "Barking: " + barkingSelected + "\n" + "Energy: " + energySelected, Toast.LENGTH_SHORT).show();
     }
 
     public static void filterDogs(){
@@ -194,7 +194,7 @@ public class TraitsActivity extends AppCompatActivity implements CompoundButton.
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         try{
-            if(b == true){
+            if(b){
                 isHypoallergenic = true;
                 debugOpts();
             }
