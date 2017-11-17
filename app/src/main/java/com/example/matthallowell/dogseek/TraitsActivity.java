@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import static com.example.matthallowell.dogseek.Breed.barkingList;
 import static com.example.matthallowell.dogseek.Breed.coatList;
@@ -21,6 +22,15 @@ import static com.example.matthallowell.dogseek.Breed.trainabilityList;
 public class TraitsActivity extends AppCompatActivity {
 
     private static final String TAG = "TraitsActivity";
+    static Breed.Group groupSelected;
+    static Breed.Size sizeSelected;
+    static Breed.Coat coatSelected;
+    static Breed.Shedding sheddingSelected;
+    static boolean isHypoallergenic;
+    static Breed.Trainability trainabilitySelected;
+    static Breed.Grooming groomingSelected;
+    static Breed.BarkingFrequency barkingSelected;
+    static Breed.Energy energySelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +47,8 @@ public class TraitsActivity extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         Log.d(TAG, "groupSpinner: " + groupList.get(position) +
                                 " position=" + position + " id=" + id);
+                        groupSelected = groupList.get(position);
+                        debugOpts();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -52,6 +64,8 @@ public class TraitsActivity extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         Log.d(TAG, "sizeSpinner: " + sizeList.get(position) +
                                 " position=" + position + " id=" + id);
+                        sizeSelected = sizeList.get(position);
+                        debugOpts();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -67,6 +81,8 @@ public class TraitsActivity extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         Log.d(TAG, "coatSpinner: " + coatList.get(position) +
                                 " position=" + position + " id=" + id);
+                        coatSelected = coatList.get(position);
+                        debugOpts();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -82,6 +98,8 @@ public class TraitsActivity extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         Log.d(TAG, "sheddingSpinner: " + sheddingList.get(position) +
                                 " position=" + position + " id=" + id);
+                        sheddingSelected = sheddingList.get(position);
+                        debugOpts();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -97,6 +115,8 @@ public class TraitsActivity extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         Log.d(TAG, "trainabilitySpinner: " + trainabilityList.get(position) +
                                 " position=" + position + " id=" + id);
+                        trainabilitySelected = trainabilityList.get(position);
+                        debugOpts();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -112,6 +132,8 @@ public class TraitsActivity extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         Log.d(TAG, "groomingSpinner: " + groomingList.get(position) +
                                 " position=" + position + " id=" + id);
+                        groomingSelected = groomingList.get(position);
+                        debugOpts();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -127,6 +149,8 @@ public class TraitsActivity extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         Log.d(TAG, "barkingSpinner: " + barkingList.get(position) +
                                 " position=" + position + " id=" + id);
+                        barkingSelected = barkingList.get(position);
+                        debugOpts();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -142,6 +166,8 @@ public class TraitsActivity extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         Log.d(TAG, "energySpinner: " + energyList.get(position) +
                                 " position=" + position + " id=" + id);
+                        energySelected = energyList.get(position);
+                        debugOpts();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -150,6 +176,9 @@ public class TraitsActivity extends AppCompatActivity {
                 });
 
 
+    }
+    public void debugOpts(){
+        Toast.makeText(this, "Group: " + groupSelected + "\n" + "Size: " + sizeSelected + "\n" + "Coat: " + coatSelected + "\n" + "Shedding: " + sheddingSelected + "\n" + "Trainability: " + trainabilitySelected + "\n" + "Grooming: " + groomingSelected + "\n" + "Barking: " + barkingSelected + "\n" + "Energy: " + energySelected, Toast.LENGTH_LONG).show();
     }
 
     public static void filterDogs(){
