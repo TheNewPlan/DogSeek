@@ -22,16 +22,4 @@ public class Breeds {
       new Breed("American Foxhound", Breed.Group.Hound, Breed.Size.Large, Breed.Coat.Short, Breed.Shedding.Seasonal, false, Breed.Trainability.RespondsWell, Breed.Grooming.Occasional, Breed.BarkingFrequency.WhenNecessary, Breed.Energy.High, "Sweet-tempered and easygoing, but also stubborn and independent",""),
       new Breed("American Hairless Terrier", Breed.Group.Terrier, Breed.Size.Medium, Breed.Coat.Short, Breed.Shedding.Infrequent, true, Breed.Trainability.EagerToPlease, Breed.Grooming.Occasional, Breed.BarkingFrequency.WhenNecessary, Breed.Energy.Medium, "Friendly, lovable, inquisitive; fearlessly game for just about anything.","")
     };
-
-    /**
-     * String resources for the spinner adapters on the main activity
-     */
-    public static final String[] GROUPS = {"Any","Herding", "Hound", "NonSporting", "Sporting", "Terrier", "Toy", "Working"};
-    public static final String[] SIZES = {"Any","Small","Medium","Large"};
-    public static final String[] COATS = {"Any","Hairless","Short","Medium","Long"};
-    public static final String[] SHEDDING = {"Any","Seasonal","Infrequent"};
-    public static final String[] TRAINABILITY = {"Any","Eager to Please","Responds Well","Independent"};
-    public static final String[] GROOMINGFREQUENCIES = {"Any","Daily","Weekly","Occasional"};
-    public static final String[] BARKINGFREQUENCIES = {"Any","Quiet","When Necessary","Vocal"};
-    public static final String[] ENERGYLEVELS = {"Any","Low","Medium","High"};
 }

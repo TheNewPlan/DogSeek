@@ -5,6 +5,10 @@ package com.example.matthallowell.dogseek;
  * This class will be the template that will organize all of the required values for the person searching the application.
  */
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * For sake of simplicity for the time, I am only recognizing breeds accepted by the American Kennel Club
  */
@@ -12,30 +16,38 @@ public class Breed {
     //Name of the breed
     String name;
     //The breeds group
-    enum Group {Herding, Hound, NonSporting, Sporting, Terrier, Toy, Working }
+    enum Group {Any, Herding, Hound, NonSporting, Sporting, Terrier, Toy, Working }
+    static ArrayList<Group> groupList = new ArrayList<>(Arrays.asList(Group.values()));
     Group group;
     //The breeds size
-    enum Size {Small, Medium, Large}
+    enum Size {Any, Small, Medium, Large}
+    static ArrayList<Size> sizeList = new ArrayList<>(Arrays.asList(Size.values()));
     Size size;
     //The breeds coat
-    enum Coat {Hairless, Short, Medium, Long}
+    enum Coat {Any, Hairless, Short, Medium, Long}
+    static ArrayList<Coat> coatList = new ArrayList<>(Arrays.asList(Coat.values()));
     Coat coat;
     //The breeds shedding frequency
-    enum Shedding {Seasonal, Infrequent}
+    enum Shedding {Any, Seasonal, Infrequent}
+    static ArrayList<Shedding> sheddingList = new ArrayList<>(Arrays.asList(Shedding.values()));
     Shedding shedding;
     //If the breed is isHypoallergenic or not
     boolean isHypoallergenic;
     //How easy/difficult it will be to train the breed
-    enum Trainability {EagerToPlease, RespondsWell, Independent}
+    enum Trainability {Any, EagerToPlease, RespondsWell, Independent}
+    static ArrayList<Trainability> trainabilityList = new ArrayList<>(Arrays.asList(Trainability.values()));
     Trainability trainability;
     //How frequent the breed will need to be groomed
-    enum Grooming {Daily, Weekly, Occasional}
+    enum Grooming {Any, Daily, Weekly, Occasional}
+    static ArrayList<Grooming> groomingList = new ArrayList<>(Arrays.asList(Grooming.values()));
     Grooming grooming;
     //How frequent the dog may bark, whether they do it when necessary or not
-    enum BarkingFrequency {Quiet, Vocal, WhenNecessary}
+    enum BarkingFrequency {Any, Quiet, Vocal, WhenNecessary}
+    static ArrayList<BarkingFrequency> barkingList = new ArrayList<>(Arrays.asList(BarkingFrequency.values()));
     BarkingFrequency barkingFrequency;
     //The energy level of the breed (this is a generalized thought, no two dogs are the same)
-    enum Energy {High, Medium, Low}
+    enum Energy {Any, High, Medium, Low}
+    static ArrayList<Energy> energyList = new ArrayList<>(Arrays.asList(Energy.values()));
     Energy energy;
     //The descriptions which will be needed for the list view
     String shortDescription;

@@ -8,14 +8,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import static com.example.matthallowell.dogseek.Breeds.BARKINGFREQUENCIES;
-import static com.example.matthallowell.dogseek.Breeds.COATS;
-import static com.example.matthallowell.dogseek.Breeds.ENERGYLEVELS;
-import static com.example.matthallowell.dogseek.Breeds.GROOMINGFREQUENCIES;
-import static com.example.matthallowell.dogseek.Breeds.GROUPS;
-import static com.example.matthallowell.dogseek.Breeds.SHEDDING;
-import static com.example.matthallowell.dogseek.Breeds.SIZES;
-import static com.example.matthallowell.dogseek.Breeds.TRAINABILITY;
+import static com.example.matthallowell.dogseek.Breed.barkingList;
+import static com.example.matthallowell.dogseek.Breed.coatList;
+import static com.example.matthallowell.dogseek.Breed.energyList;
+import static com.example.matthallowell.dogseek.Breed.groomingList;
+import static com.example.matthallowell.dogseek.Breed.groupList;
+import static com.example.matthallowell.dogseek.Breed.sheddingList;
+import static com.example.matthallowell.dogseek.Breed.sizeList;
+import static com.example.matthallowell.dogseek.Breed.trainabilityList;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,13 +29,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         final Spinner groupSpinner = findViewById(R.id.groupSpinner);
-        ArrayAdapter<String> groupAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, GROUPS);
+        ArrayAdapter<Breed.Group> groupAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, groupList);
         groupAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         groupSpinner.setAdapter(groupAdapter);
         groupSpinner.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        Log.d(TAG, "groupSpinner: " + GROUPS[position] +
+                        Log.d(TAG, "groupSpinner: " + groupList.get(position) +
                                 " position=" + position + " id=" + id);
                     }
 
@@ -43,13 +44,13 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         final Spinner sizeSpinner = findViewById(R.id.sizeSpinner);
-        ArrayAdapter<String> sizeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, SIZES);
+        ArrayAdapter<Breed.Size> sizeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, sizeList);
         sizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sizeSpinner.setAdapter(sizeAdapter);
         sizeSpinner.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        Log.d(TAG, "sizeSpinner: " + SIZES[position] +
+                        Log.d(TAG, "sizeSpinner: " + sizeList.get(position) +
                                 " position=" + position + " id=" + id);
                     }
 
@@ -58,13 +59,13 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         final Spinner coatSpinner = findViewById(R.id.coatSpinner);
-        ArrayAdapter<String> coatAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, COATS);
+        ArrayAdapter<Breed.Coat> coatAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, coatList);
         coatAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         coatSpinner.setAdapter(coatAdapter);
         coatSpinner.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        Log.d(TAG, "coatSpinner: " + COATS[position] +
+                        Log.d(TAG, "coatSpinner: " + coatList.get(position) +
                                 " position=" + position + " id=" + id);
                     }
 
@@ -73,13 +74,13 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         final Spinner sheddingSpinner = findViewById(R.id.sheddingSpinner);
-        ArrayAdapter<String> sheddingAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, SHEDDING);
+        ArrayAdapter<Breed.Shedding> sheddingAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, sheddingList);
         sheddingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sheddingSpinner.setAdapter(sheddingAdapter);
         sheddingSpinner.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        Log.d(TAG, "sheddingSpinner: " + SHEDDING[position] +
+                        Log.d(TAG, "sheddingSpinner: " + sheddingList.get(position) +
                                 " position=" + position + " id=" + id);
                     }
 
@@ -88,13 +89,13 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         final Spinner trainabilitySpinner = findViewById(R.id.trainabilitySpinner);
-        ArrayAdapter<String> trainabilityAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, TRAINABILITY);
+        ArrayAdapter<Breed.Trainability> trainabilityAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, trainabilityList);
         trainabilityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         trainabilitySpinner.setAdapter(trainabilityAdapter);
         trainabilitySpinner.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        Log.d(TAG, "trainabilitySpinner: " + TRAINABILITY[position] +
+                        Log.d(TAG, "trainabilitySpinner: " + trainabilityList.get(position) +
                                 " position=" + position + " id=" + id);
                     }
 
@@ -103,13 +104,13 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         final Spinner groomingSpinner = findViewById(R.id.groomingSpinner);
-        ArrayAdapter<String> groomingAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, GROOMINGFREQUENCIES);
+        ArrayAdapter<Breed.Grooming> groomingAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, groomingList);
         groomingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         groomingSpinner.setAdapter(groomingAdapter);
         groomingSpinner.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        Log.d(TAG, "groomingSpinner: " + GROOMINGFREQUENCIES[position] +
+                        Log.d(TAG, "groomingSpinner: " + groomingList.get(position) +
                                 " position=" + position + " id=" + id);
                     }
 
@@ -118,13 +119,13 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         final Spinner barkingSpinner = findViewById(R.id.barkingSpinner);
-        ArrayAdapter<String> barkingAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, BARKINGFREQUENCIES);
+        ArrayAdapter<Breed.BarkingFrequency> barkingAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, barkingList);
         barkingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         barkingSpinner.setAdapter(barkingAdapter);
         barkingSpinner.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        Log.d(TAG, "barkingSpinner: " + BARKINGFREQUENCIES[position] +
+                        Log.d(TAG, "barkingSpinner: " + barkingList.get(position) +
                                 " position=" + position + " id=" + id);
                     }
 
@@ -133,13 +134,13 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         final Spinner energySpinner = findViewById(R.id.energySpinner);
-        ArrayAdapter<String> energyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, ENERGYLEVELS);
+        ArrayAdapter<Breed.Energy> energyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, energyList);
         energyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         energySpinner.setAdapter(energyAdapter);
         energySpinner.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        Log.d(TAG, "energySpinner: " + ENERGYLEVELS[position] +
+                        Log.d(TAG, "energySpinner: " + energyList.get(position) +
                                 " position=" + position + " id=" + id);
                     }
 
@@ -148,6 +149,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+
+    }
+
+    public static void filterDogs(){
 
     }
 }
