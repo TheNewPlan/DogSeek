@@ -33,8 +33,8 @@ public class ListActivity extends android.app.ListActivity {
         super.onStart();
         Intent intent = getIntent();
         tmp = (ArrayList<Breed>) intent.getSerializableExtra("Breeds");
-        //breeds = tmp.toArray(new Breed[tmp.size()]);
-        for (Breed breed : tmp) {
+        breeds = tmp.toArray(new Breed[tmp.size()]);
+        for (Breed breed : breeds) {
             Log.d(TAG, "Printing breeds as toasts within ListActivity");
             Toast.makeText(this, breed.toString(), Toast.LENGTH_SHORT).show();
         }
