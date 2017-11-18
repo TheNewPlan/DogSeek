@@ -50,7 +50,6 @@ public class TraitsActivity extends AppCompatActivity {
                         Log.d(TAG, "groupSpinner: " + groupList.get(position) +
                                 " position=" + position + " id=" + id);
                         groupSelected = groupList.get(position);
-                        debugOpts();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -68,7 +67,6 @@ public class TraitsActivity extends AppCompatActivity {
                         Log.d(TAG, "sizeSpinner: " + sizeList.get(position) +
                                 " position=" + position + " id=" + id);
                         sizeSelected = sizeList.get(position);
-                        debugOpts();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -86,7 +84,6 @@ public class TraitsActivity extends AppCompatActivity {
                         Log.d(TAG, "coatSpinner: " + coatList.get(position) +
                                 " position=" + position + " id=" + id);
                         coatSelected = coatList.get(position);
-                        debugOpts();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -104,7 +101,6 @@ public class TraitsActivity extends AppCompatActivity {
                         Log.d(TAG, "sheddingSpinner: " + sheddingList.get(position) +
                                 " position=" + position + " id=" + id);
                         sheddingSelected = sheddingList.get(position);
-                        debugOpts();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -122,7 +118,6 @@ public class TraitsActivity extends AppCompatActivity {
                         Log.d(TAG, "hypoallergenicSpinner: " + hypoallergenicList.get(position) +
                                 " position=" + position + " id=" + id);
                         hypoallergenicSelected = hypoallergenicList.get(position);
-                        debugOpts();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -140,7 +135,6 @@ public class TraitsActivity extends AppCompatActivity {
                         Log.d(TAG, "trainabilitySpinner: " + trainabilityList.get(position) +
                                 " position=" + position + " id=" + id);
                         trainabilitySelected = trainabilityList.get(position);
-                        debugOpts();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -158,7 +152,6 @@ public class TraitsActivity extends AppCompatActivity {
                         Log.d(TAG, "groomingSpinner: " + groomingList.get(position) +
                                 " position=" + position + " id=" + id);
                         groomingSelected = groomingList.get(position);
-                        debugOpts();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -176,7 +169,6 @@ public class TraitsActivity extends AppCompatActivity {
                         Log.d(TAG, "barkingSpinner: " + barkingList.get(position) +
                                 " position=" + position + " id=" + id);
                         barkingSelected = barkingList.get(position);
-                        debugOpts();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -194,7 +186,6 @@ public class TraitsActivity extends AppCompatActivity {
                         Log.d(TAG, "energySpinner: " + energyList.get(position) +
                                 " position=" + position + " id=" + id);
                         energySelected = energyList.get(position);
-                        debugOpts();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -217,8 +208,17 @@ public class TraitsActivity extends AppCompatActivity {
 
     public void filterDogs() {
         Toast.makeText(this, "filterDogs Called", Toast.LENGTH_SHORT).show();
+        debugOpts();
         for (Breed breed : BREEDS) {
-            if (breed.hypoallergenic == hypoallergenicSelected){
+            if ((breed.group == groupSelected || groupSelected == breed.group.Any) &&
+                    (breed.size == sizeSelected || sizeSelected == breed.size.Any) &&
+                    (breed.coat == coatSelected || coatSelected == breed.coat.Any) &&
+                    (breed.shedding == sheddingSelected || sheddingSelected == breed.shedding.Any) &&
+                    (breed.hypoallergenic == hypoallergenicSelected || hypoallergenicSelected == breed.hypoallergenic.Any) &&
+                    (breed.trainability == trainabilitySelected || trainabilitySelected == breed.trainability.Any) &&
+                    (breed.grooming == groomingSelected || groomingSelected == breed.grooming.Any) &&
+                    (breed.barkingFrequency == barkingSelected || barkingSelected == breed.barkingFrequency.Any) &&
+                    (breed.energy == energySelected || energySelected == breed.energy.Any)){
                 Toast.makeText(this, breed.toString(), Toast.LENGTH_SHORT).show();
             }
         }
