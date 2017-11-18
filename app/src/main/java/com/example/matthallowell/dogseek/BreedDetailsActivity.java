@@ -1,17 +1,13 @@
 package com.example.matthallowell.dogseek;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-/**
- * Created by Matt Hallowell on 11/18/2017.
- */
-
-public class BreedDetailsActivity extends Activity {
+public class BreedDetailsActivity extends AppCompatActivity {
 
     private static final String TAG = "DetailsActivity";
 

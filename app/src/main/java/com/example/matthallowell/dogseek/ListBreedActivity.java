@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -28,11 +27,6 @@ public class ListBreedActivity extends ListActivity {
         Intent intent = getIntent();
         tmp = (ArrayList<Breed>) intent.getSerializableExtra("Breeds");
         filteredbreeds = tmp.toArray(new Breed[tmp.size()]);
-        for (Breed breed : filteredbreeds) {
-            Log.d(TAG, "Printing filtered breeds as toasts within ListBreedActivity");
-            Toast.makeText(this, breed.toString(), Toast.LENGTH_SHORT).show();
-        }
-
         setListAdapter(new DogAdapter());
     }
 

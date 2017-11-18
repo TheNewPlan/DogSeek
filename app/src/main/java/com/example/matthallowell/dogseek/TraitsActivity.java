@@ -220,7 +220,7 @@ public class TraitsActivity extends AppCompatActivity {
 
     public void filterDogs() {
         Toast.makeText(this, "filterDogs Called", Toast.LENGTH_SHORT).show();
-        debugOpts();
+        //debugOpts();
         //Clear out our filtered array, so that we don't return incorrect results
         filteredBreeds.clear();
         for (Breed breed : BREEDS) {
