@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -181,14 +182,20 @@ public class TraitsActivity extends AppCompatActivity implements CompoundButton.
                     }
                 });
 
-
+        Button submitButton = findViewById(R.id.submitButton);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                filterDogs();
+            }
+        });
     }
     public void debugOpts(){
         Toast.makeText(this, "Group: " + groupSelected + "\n" + "Size: " + sizeSelected + "\n" + "Coat: " + coatSelected + "\n" + "Shedding: " + sheddingSelected + "\n" + "isHypoallergenic: " + isHypoallergenic + "\n" + "Trainability: " + trainabilitySelected + "\n" + "Grooming: " + groomingSelected + "\n" + "Barking: " + barkingSelected + "\n" + "Energy: " + energySelected, Toast.LENGTH_SHORT).show();
     }
 
-    public static void filterDogs(){
-
+    public void filterDogs(){
+        Toast.makeText(this, "filterDogs Called", Toast.LENGTH_SHORT).show();
     }
 
     @Override
