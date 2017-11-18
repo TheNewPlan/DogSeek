@@ -1,5 +1,6 @@
 package com.example.matthallowell.dogseek;
 
+import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,14 +9,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class ListActivity extends android.app.ListActivity {
+public class ListBreedActivity extends ListActivity {
 
-    private static final String TAG = "ListActivity";
+    private static final String TAG = "ListBreedActivity";
     private ArrayList<Breed> tmp;
     private Breed[] filteredbreeds;
 
@@ -27,13 +29,22 @@ public class ListActivity extends android.app.ListActivity {
         tmp = (ArrayList<Breed>) intent.getSerializableExtra("Breeds");
         filteredbreeds = tmp.toArray(new Breed[tmp.size()]);
         for (Breed breed : filteredbreeds) {
-            Log.d(TAG, "Printing filtered breeds as toasts within ListActivity");
+            Log.d(TAG, "Printing filtered breeds as toasts within ListBreedActivity");
             Toast.makeText(this, breed.toString(), Toast.LENGTH_SHORT).show();
         }
 
         setListAdapter(new DogAdapter());
     }
 
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        Log.d(TAG, "onListItemClick position=" + position + " id=" + id + " " + filteredbreeds[position].getName());
+        Intent intent = new Intent(ListBreedActivity.this, BreedDetailsActivity.class);
+        intent.putExtra("Name", filteredbreeds[position].getName());
+        intent.putExtra("Description", filteredbreeds[position].getLongDescription());
+        startActivity(intent);
+    }
 
     class DogAdapter extends BaseAdapter{
 
@@ -55,7 +66,7 @@ public class ListActivity extends android.app.ListActivity {
             View row = view;
             if (view == null){
                 if (inflater == null) {
-                    inflater = (LayoutInflater) ListActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    inflater = (LayoutInflater) ListBreedActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 }
                 row = inflater.inflate(R.layout.activity_details, viewGroup, false);
             }

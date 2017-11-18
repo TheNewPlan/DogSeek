@@ -203,7 +203,7 @@ public class TraitsActivity extends AppCompatActivity {
                 filterDogs();
                 ArrayList<Breed> listBreeds = getFilteredDogs();
                 Intent intent = new Intent();
-                intent.setClass(TraitsActivity.this, ListActivity.class);
+                intent.setClass(TraitsActivity.this, ListBreedActivity.class);
                 intent.putExtra("Breeds",listBreeds);
                 startActivity(intent);
             }
