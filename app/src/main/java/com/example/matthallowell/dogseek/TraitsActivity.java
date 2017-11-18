@@ -1,5 +1,6 @@
 package com.example.matthallowell.dogseek;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
+import java.util.ArrayList;
 
 import static com.example.matthallowell.dogseek.Breed.barkingList;
 import static com.example.matthallowell.dogseek.Breed.coatList;
@@ -25,6 +27,7 @@ import static com.example.matthallowell.dogseek.Breeds.BREEDS;
 public class TraitsActivity extends AppCompatActivity {
 
     private static final String TAG = "TraitsActivity";
+    private static ArrayList<Breed> filteredBreeds = new ArrayList<>();
     static Breed.Group groupSelected;
     static Breed.Size sizeSelected;
     static Breed.Coat coatSelected;
@@ -197,7 +200,15 @@ public class TraitsActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                filterDogs();
+                    filterDogs();
+                ArrayList<Breed> tmp = getFilteredDogs();
+                for (Breed breed : tmp){
+                    Toast.makeText(TraitsActivity.this, breed.toString(), Toast.LENGTH_SHORT).show();
+                }
+                  ArrayList<Breed> listBreeds = getFilteredDogs();
+                //Need to determine how to send the new array of information via intent.
+//                  Intent intent = new Intent(this, ListActivity.class);
+
             }
         });
     }
@@ -206,9 +217,15 @@ public class TraitsActivity extends AppCompatActivity {
         Toast.makeText(this, "Group: " + groupSelected + "\n" + "Size: " + sizeSelected + "\n" + "Coat: " + coatSelected + "\n" + "Shedding: " + sheddingSelected + "\n" + "Hypoallergenic: " + hypoallergenicSelected + "\n" + "Trainability: " + trainabilitySelected + "\n" + "Grooming: " + groomingSelected + "\n" + "Barking: " + barkingSelected + "\n" + "Energy: " + energySelected, Toast.LENGTH_SHORT).show();
     }
 
+    public ArrayList<Breed> getFilteredDogs(){
+        return filteredBreeds;
+    }
+
     public void filterDogs() {
         Toast.makeText(this, "filterDogs Called", Toast.LENGTH_SHORT).show();
         debugOpts();
+        //Clear out our filtered array, so that we don't return incorrect results
+        filteredBreeds.clear();
         for (Breed breed : BREEDS) {
             if ((breed.group == groupSelected || groupSelected == breed.group.Any) &&
                     (breed.size == sizeSelected || sizeSelected == breed.size.Any) &&
@@ -219,7 +236,8 @@ public class TraitsActivity extends AppCompatActivity {
                     (breed.grooming == groomingSelected || groomingSelected == breed.grooming.Any) &&
                     (breed.barkingFrequency == barkingSelected || barkingSelected == breed.barkingFrequency.Any) &&
                     (breed.energy == energySelected || energySelected == breed.energy.Any)){
-                Toast.makeText(this, breed.toString(), Toast.LENGTH_SHORT).show();
+                //If the breed meets the user requirements, add it to the array.
+                filteredBreeds.add(breed);
             }
         }
     }
