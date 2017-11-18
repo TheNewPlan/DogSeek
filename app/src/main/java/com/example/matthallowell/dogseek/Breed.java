@@ -5,24 +5,16 @@ package com.example.matthallowell.dogseek;
  * This class will be the template that will organize all of the required values for the person searching the application.
  */
 
-import android.support.annotation.NonNull;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 
 /**
  * For sake of simplicity for the time, I am only recognizing breeds accepted by the American Kennel Club
  */
-public class Breed implements Iterable {
+public class Breed implements Serializable{
     //Name of the breed
     String name;
-
-    @NonNull
-    @Override
-    public Iterator iterator() {
-        return null;
-    }
 
     //The breeds group
     enum Group {Any, Herding, Hound, NonSporting, Sporting, Terrier, Toy, Working }

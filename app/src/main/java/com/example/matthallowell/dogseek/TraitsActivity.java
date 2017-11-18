@@ -200,15 +200,12 @@ public class TraitsActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    filterDogs();
-                ArrayList<Breed> tmp = getFilteredDogs();
-                for (Breed breed : tmp){
-                    Toast.makeText(TraitsActivity.this, breed.toString(), Toast.LENGTH_SHORT).show();
-                }
-                  ArrayList<Breed> listBreeds = getFilteredDogs();
-                //Need to determine how to send the new array of information via intent.
-//                  Intent intent = new Intent(this, ListActivity.class);
-
+                filterDogs();
+                ArrayList<Breed> listBreeds = getFilteredDogs();
+                Intent intent = new Intent();
+                intent.setClass(TraitsActivity.this, ListActivity.class);
+                intent.putExtra("Breeds",listBreeds);
+                startActivity(intent);
             }
         });
     }
