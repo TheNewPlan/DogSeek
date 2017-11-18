@@ -40,8 +40,10 @@ public class Breed implements Iterable {
     enum Shedding {Any, Seasonal, Infrequent}
     static ArrayList<Shedding> sheddingList = new ArrayList<>(Arrays.asList(Shedding.values()));
     Shedding shedding;
-    //If the breed is isHypoallergenic or not
-    boolean isHypoallergenic;
+    //If the breed is Hypoallergenic or not
+    enum Hypoallergenic {Any, True, False}
+    static ArrayList<Hypoallergenic> hypoallergenicList = new ArrayList<>(Arrays.asList(Hypoallergenic.values()));
+    Hypoallergenic hypoallergenic;
     //How easy/difficult it will be to train the breed
     enum Trainability {Any, EagerToPlease, RespondsWell, Independent}
     static ArrayList<Trainability> trainabilityList = new ArrayList<>(Arrays.asList(Trainability.values()));
@@ -61,13 +63,13 @@ public class Breed implements Iterable {
     //The descriptions which will be needed for the list view
     String shortDescription;
     String longDescription;
-    public Breed (String name, Group group, Size size, Coat coat, Shedding shedding, boolean isHypoallergenic, Trainability trainability, Grooming grooming, BarkingFrequency barkingFrequency, Energy energy, String shortDescription, String longDescription){
+    public Breed (String name, Group group, Size size, Coat coat, Shedding shedding, Hypoallergenic hypoallergenic, Trainability trainability, Grooming grooming, BarkingFrequency barkingFrequency, Energy energy, String shortDescription, String longDescription){
         this.name = name;
         this.group = group;
         this.size = size;
         this.coat = coat;
         this.shedding = shedding;
-        this.isHypoallergenic = isHypoallergenic;
+        this.hypoallergenic = hypoallergenic;
         this.trainability = trainability;
         this.grooming = grooming;
         this.barkingFrequency = barkingFrequency;
@@ -96,8 +98,8 @@ public class Breed implements Iterable {
         return shedding;
     }
 
-    public boolean getisHypoallergenic() {
-        return isHypoallergenic;
+    public Hypoallergenic getisHypoallergenic() {
+        return hypoallergenic;
     }
 
     public Trainability getTrainability() {

@@ -7,9 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import static com.example.matthallowell.dogseek.Breed.barkingList;
@@ -17,20 +15,21 @@ import static com.example.matthallowell.dogseek.Breed.coatList;
 import static com.example.matthallowell.dogseek.Breed.energyList;
 import static com.example.matthallowell.dogseek.Breed.groomingList;
 import static com.example.matthallowell.dogseek.Breed.groupList;
+import static com.example.matthallowell.dogseek.Breed.hypoallergenicList;
 import static com.example.matthallowell.dogseek.Breed.sheddingList;
 import static com.example.matthallowell.dogseek.Breed.sizeList;
 import static com.example.matthallowell.dogseek.Breed.trainabilityList;
 import static com.example.matthallowell.dogseek.Breeds.BREEDS;
 
 
-public class TraitsActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+public class TraitsActivity extends AppCompatActivity {
 
     private static final String TAG = "TraitsActivity";
     static Breed.Group groupSelected;
     static Breed.Size sizeSelected;
     static Breed.Coat coatSelected;
     static Breed.Shedding sheddingSelected;
-    static boolean isHypoallergenic;
+    static Breed.Hypoallergenic hypoallergenicSelected;
     static Breed.Trainability trainabilitySelected;
     static Breed.Grooming groomingSelected;
     static Breed.BarkingFrequency barkingSelected;
@@ -39,8 +38,7 @@ public class TraitsActivity extends AppCompatActivity implements CompoundButton.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_traits);
 
         final Spinner groupSpinner = findViewById(R.id.groupSpinner);
         ArrayAdapter<Breed.Group> groupAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, groupList);
@@ -59,6 +57,7 @@ public class TraitsActivity extends AppCompatActivity implements CompoundButton.
                         Log.d(TAG, "groupSpinner: unselected");
                     }
                 });
+
         final Spinner sizeSpinner = findViewById(R.id.sizeSpinner);
         ArrayAdapter<Breed.Size> sizeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, sizeList);
         sizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -76,6 +75,7 @@ public class TraitsActivity extends AppCompatActivity implements CompoundButton.
                         Log.d(TAG, "sizeSpinner: unselected");
                     }
                 });
+
         final Spinner coatSpinner = findViewById(R.id.coatSpinner);
         ArrayAdapter<Breed.Coat> coatAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, coatList);
         coatAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -93,6 +93,7 @@ public class TraitsActivity extends AppCompatActivity implements CompoundButton.
                         Log.d(TAG, "coatSpinner: unselected");
                     }
                 });
+
         final Spinner sheddingSpinner = findViewById(R.id.sheddingSpinner);
         ArrayAdapter<Breed.Shedding> sheddingAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, sheddingList);
         sheddingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -110,10 +111,24 @@ public class TraitsActivity extends AppCompatActivity implements CompoundButton.
                         Log.d(TAG, "sheddingSpinner: unselected");
                     }
                 });
-        //TODO: Convert this into a Spinner with the options, ANY, YES, NO
-        final Switch hypoallergenicSwitch = findViewById(R.id.hypoallergenicSwitch);
-        hypoallergenicSwitch.setOnCheckedChangeListener(this);
 
+        final Spinner hypoallergenicSpinner = findViewById(R.id.hypoallergenicSpinner);
+        ArrayAdapter<Breed.Hypoallergenic> hypoallergenicAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, hypoallergenicList);
+        hypoallergenicAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        hypoallergenicSpinner.setAdapter(hypoallergenicAdapter);
+        hypoallergenicSpinner.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        Log.d(TAG, "hypoallergenicSpinner: " + hypoallergenicList.get(position) +
+                                " position=" + position + " id=" + id);
+                        hypoallergenicSelected = hypoallergenicList.get(position);
+                        debugOpts();
+                    }
+
+                    public void onNothingSelected(AdapterView<?> parent) {
+                        Log.d(TAG, "hypoallergenicSpinner: unselected");
+                    }
+                });
 
         final Spinner trainabilitySpinner = findViewById(R.id.trainabilitySpinner);
         ArrayAdapter<Breed.Trainability> trainabilityAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, trainabilityList);
@@ -132,6 +147,7 @@ public class TraitsActivity extends AppCompatActivity implements CompoundButton.
                         Log.d(TAG, "trainabilitySpinner: unselected");
                     }
                 });
+
         final Spinner groomingSpinner = findViewById(R.id.groomingSpinner);
         ArrayAdapter<Breed.Grooming> groomingAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, groomingList);
         groomingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -149,6 +165,7 @@ public class TraitsActivity extends AppCompatActivity implements CompoundButton.
                         Log.d(TAG, "groomingSpinner: unselected");
                     }
                 });
+
         final Spinner barkingSpinner = findViewById(R.id.barkingSpinner);
         ArrayAdapter<Breed.BarkingFrequency> barkingAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, barkingList);
         barkingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -166,6 +183,7 @@ public class TraitsActivity extends AppCompatActivity implements CompoundButton.
                         Log.d(TAG, "barkingSpinner: unselected");
                     }
                 });
+
         final Spinner energySpinner = findViewById(R.id.energySpinner);
         ArrayAdapter<Breed.Energy> energyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, energyList);
         energyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -192,33 +210,17 @@ public class TraitsActivity extends AppCompatActivity implements CompoundButton.
             }
         });
     }
-    public void debugOpts(){
-        Toast.makeText(this, "Group: " + groupSelected + "\n" + "Size: " + sizeSelected + "\n" + "Coat: " + coatSelected + "\n" + "Shedding: " + sheddingSelected + "\n" + "isHypoallergenic: " + isHypoallergenic + "\n" + "Trainability: " + trainabilitySelected + "\n" + "Grooming: " + groomingSelected + "\n" + "Barking: " + barkingSelected + "\n" + "Energy: " + energySelected, Toast.LENGTH_SHORT).show();
+
+    public void debugOpts() {
+        Toast.makeText(this, "Group: " + groupSelected + "\n" + "Size: " + sizeSelected + "\n" + "Coat: " + coatSelected + "\n" + "Shedding: " + sheddingSelected + "\n" + "Hypoallergenic: " + hypoallergenicSelected + "\n" + "Trainability: " + trainabilitySelected + "\n" + "Grooming: " + groomingSelected + "\n" + "Barking: " + barkingSelected + "\n" + "Energy: " + energySelected, Toast.LENGTH_SHORT).show();
     }
 
-    public void filterDogs(){
+    public void filterDogs() {
         Toast.makeText(this, "filterDogs Called", Toast.LENGTH_SHORT).show();
-        for(Breed breed : BREEDS){
-            if (breed.isHypoallergenic == isHypoallergenic){
-                Toast.makeText(this, breed.name.toString(), Toast.LENGTH_SHORT).show();
+        for (Breed breed : BREEDS) {
+            if (breed.hypoallergenic == hypoallergenicSelected){
+                Toast.makeText(this, breed.toString(), Toast.LENGTH_SHORT).show();
             }
-        }
-    }
-
-    @Override
-    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-        try{
-            if(b){
-                isHypoallergenic = true;
-                debugOpts();
-            }
-            else{
-                isHypoallergenic = false;
-                debugOpts();
-            }
-        }
-        catch (Exception e){
-            e.printStackTrace();
         }
     }
 }
