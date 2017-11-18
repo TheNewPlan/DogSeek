@@ -20,6 +20,7 @@ import static com.example.matthallowell.dogseek.Breed.groupList;
 import static com.example.matthallowell.dogseek.Breed.sheddingList;
 import static com.example.matthallowell.dogseek.Breed.sizeList;
 import static com.example.matthallowell.dogseek.Breed.trainabilityList;
+import static com.example.matthallowell.dogseek.Breeds.BREEDS;
 
 
 public class TraitsActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
@@ -109,6 +110,7 @@ public class TraitsActivity extends AppCompatActivity implements CompoundButton.
                         Log.d(TAG, "sheddingSpinner: unselected");
                     }
                 });
+        //TODO: Convert this into a Spinner with the options, ANY, YES, NO
         final Switch hypoallergenicSwitch = findViewById(R.id.hypoallergenicSwitch);
         hypoallergenicSwitch.setOnCheckedChangeListener(this);
 
@@ -196,6 +198,11 @@ public class TraitsActivity extends AppCompatActivity implements CompoundButton.
 
     public void filterDogs(){
         Toast.makeText(this, "filterDogs Called", Toast.LENGTH_SHORT).show();
+        for(Breed breed : BREEDS){
+            if (breed.isHypoallergenic == isHypoallergenic){
+                Toast.makeText(this, breed.name.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     @Override
