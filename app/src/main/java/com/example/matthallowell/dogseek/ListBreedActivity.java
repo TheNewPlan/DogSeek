@@ -47,7 +47,7 @@ public class ListBreedActivity extends ListActivity {
         intent.putExtra("Grooming",filteredbreeds[position].getGrooming().toString());
         intent.putExtra("Barking",filteredbreeds[position].getBarkingFrequency().toString());
         intent.putExtra("Energy",filteredbreeds[position].getEnergy().toString());
-        intent.putExtra("Description", filteredbreeds[position].getLongDescription());
+        intent.putExtra("Uri", filteredbreeds[position].getUri());
         startActivity(intent);
     }
 

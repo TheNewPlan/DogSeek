@@ -6,7 +6,6 @@ package com.example.matthallowell.dogseek;
  */
 
 import java.io.Serializable;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -55,8 +54,8 @@ public class Breed implements Serializable{
     Energy energy;
     //The descriptions which will be needed for the list view
     String shortDescription;
-    String longDescription;
-    public Breed (String name, Group group, Size size, Coat coat, Shedding shedding, Hypoallergenic hypoallergenic, Trainability trainability, Grooming grooming, BarkingFrequency barkingFrequency, Energy energy, String shortDescription, String longDescription){
+    String uri;
+    public Breed (String name, Group group, Size size, Coat coat, Shedding shedding, Hypoallergenic hypoallergenic, Trainability trainability, Grooming grooming, BarkingFrequency barkingFrequency, Energy energy, String shortDescription, String uri){
         this.name = name;
         this.group = group;
         this.size = size;
@@ -68,7 +67,7 @@ public class Breed implements Serializable{
         this.barkingFrequency = barkingFrequency;
         this.energy = energy;
         this.shortDescription = shortDescription;
-        this.longDescription = longDescription;
+        this.uri = uri;
     }
 
     public String getName() {
@@ -115,8 +114,8 @@ public class Breed implements Serializable{
         return shortDescription;
     }
 
-    public String getLongDescription() {
-        return longDescription;
+    public String getUri() {
+        return uri;
     }
 
     @Override

@@ -76,7 +76,7 @@ public class BreedDetailsActivity extends AppCompatActivity {
         // The activity is about to become visible.
         Intent intent = getIntent();
         if (intent != null) {
-            uriName = intent.getStringExtra("Name");
+            uriName = intent.getStringExtra("Uri");
             ImageView icon = findViewById(R.id.image);
             TextView name = findViewById(R.id.text1);
             TextView group = findViewById(R.id.GroupTextView);
