@@ -77,6 +77,7 @@ public class BreedDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent != null) {
             uriName = intent.getStringExtra("Name");
+            ImageView icon = findViewById(R.id.image);
             TextView name = findViewById(R.id.text1);
             TextView group = findViewById(R.id.GroupTextView);
             TextView size = findViewById(R.id.SizeTextView);
@@ -88,7 +89,7 @@ public class BreedDetailsActivity extends AppCompatActivity {
             TextView barking = findViewById(R.id.BarkingTextView);
             TextView energy = findViewById(R.id.EnergyTextView);
 
-            ImageView icon = findViewById(R.id.image);
+            icon.setImageResource(intent.getIntExtra("DogGroup",-1));
             name.setText(intent.getCharSequenceExtra("Name"));
             group.setText(intent.getCharSequenceExtra("Group"));
             size.setText(intent.getCharSequenceExtra("Size"));

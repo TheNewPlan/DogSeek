@@ -6,6 +6,7 @@ package com.example.matthallowell.dogseek;
  */
 
 import java.io.Serializable;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -121,5 +122,18 @@ public class Breed implements Serializable{
     @Override
     public String toString() {
         return name;
+    }
+
+    public static int getIconResource(Group group){
+        switch (group){
+            case Sporting: return R.drawable.sporting;
+            case Hound: return R.drawable.hound;
+            case Working: return R.drawable.working;
+            case Terrier: return R.drawable.terrier;
+            case Toy: return R.drawable.toy;
+            case NonSporting: return R.drawable.nonsporting;
+            case Herding: return R.drawable.herding;
+        }
+        return -1;
     }
 }

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -35,6 +36,7 @@ public class ListBreedActivity extends ListActivity {
         super.onListItemClick(l, v, position, id);
         Log.d(TAG, "onListItemClick position=" + position + " id=" + id + " " + filteredbreeds[position].getName());
         Intent intent = new Intent(ListBreedActivity.this, BreedDetailsActivity.class);
+        intent.putExtra("DogGroup",Breed.getIconResource(filteredbreeds[position].getGroup()));
         intent.putExtra("Name", filteredbreeds[position].getName());
         intent.putExtra("Group", filteredbreeds[position].getGroup().toString());
         intent.putExtra("Size", filteredbreeds[position].getSize().toString());
@@ -74,12 +76,14 @@ public class ListBreedActivity extends ListActivity {
                 row = inflater.inflate(R.layout.breed_list_item, viewGroup, false);
             }
             //Setup resource images
+            ImageView icon = row.findViewById(R.id.image);
             TextView name = row.findViewById(R.id.text1);
             TextView description = row.findViewById(R.id.text2);
 
             Breed breed = filteredbreeds[i];
             name.setText(breed.getName());
             description.setText(breed.getShortDescription());
+            icon.setImageResource(breed.getIconResource(breed.getGroup()));
             //Setup resource images
             return row;
         }
