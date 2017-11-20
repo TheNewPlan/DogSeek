@@ -219,7 +219,7 @@ public class TraitsActivity extends AppCompatActivity {
     }
 
     public void filterDogs() {
-        Toast.makeText(this, "filterDogs Called", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "filterDogs Called", Toast.LENGTH_SHORT).show();
         //debugOpts();
         //Clear out our filtered array, so that we don't return incorrect results
         filteredBreeds.clear();

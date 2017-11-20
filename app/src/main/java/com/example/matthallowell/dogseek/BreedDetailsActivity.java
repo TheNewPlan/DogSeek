@@ -22,6 +22,7 @@ public class BreedDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.breed_list_item);
+        Toast.makeText(this, "Swipe left to return.\nSwipe down for the AKC.", Toast.LENGTH_SHORT).show();
         swipe = new Swipe();
         swipe.setListener(new SwipeListener() {
             @Override
@@ -41,7 +42,6 @@ public class BreedDetailsActivity extends AppCompatActivity {
 
             @Override
             public void onSwipedRight(MotionEvent event) {
-                Toast.makeText(BreedDetailsActivity.this, "Hi world!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -56,7 +56,6 @@ public class BreedDetailsActivity extends AppCompatActivity {
 
             @Override
             public void onSwipingDown(MotionEvent event) {
-
             }
 
             @Override
@@ -78,7 +77,6 @@ public class BreedDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent != null) {
             uriName = intent.getStringExtra("Name");
-            uriName.toLowerCase();
             TextView name = findViewById(R.id.text1);
             TextView description = findViewById(R.id.text2);
             ImageView icon = findViewById(R.id.image);
