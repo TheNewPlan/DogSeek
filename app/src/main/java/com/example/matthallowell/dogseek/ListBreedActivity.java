@@ -36,6 +36,15 @@ public class ListBreedActivity extends ListActivity {
         Log.d(TAG, "onListItemClick position=" + position + " id=" + id + " " + filteredbreeds[position].getName());
         Intent intent = new Intent(ListBreedActivity.this, BreedDetailsActivity.class);
         intent.putExtra("Name", filteredbreeds[position].getName());
+        intent.putExtra("Group", filteredbreeds[position].getGroup().toString());
+        intent.putExtra("Size", filteredbreeds[position].getSize().toString());
+        intent.putExtra("Coat", filteredbreeds[position].getCoat().toString());
+        intent.putExtra("Shedding",filteredbreeds[position].getShedding().toString());
+        intent.putExtra("Hypoallergenic",filteredbreeds[position].getisHypoallergenic().toString());
+        intent.putExtra("Trainability",filteredbreeds[position].getTrainability().toString());
+        intent.putExtra("Grooming",filteredbreeds[position].getGrooming().toString());
+        intent.putExtra("Barking",filteredbreeds[position].getBarkingFrequency().toString());
+        intent.putExtra("Energy",filteredbreeds[position].getEnergy().toString());
         intent.putExtra("Description", filteredbreeds[position].getLongDescription());
         startActivity(intent);
     }
@@ -62,7 +71,7 @@ public class ListBreedActivity extends ListActivity {
                 if (inflater == null) {
                     inflater = (LayoutInflater) ListBreedActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 }
-                row = inflater.inflate(R.layout.activity_details, viewGroup, false);
+                row = inflater.inflate(R.layout.breed_list_item, viewGroup, false);
             }
             //Setup resource images
             TextView name = row.findViewById(R.id.text1);

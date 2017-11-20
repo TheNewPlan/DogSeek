@@ -21,7 +21,7 @@ public class BreedDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.breed_list_item);
+        setContentView(R.layout.activity_details);
         Toast.makeText(this, "Swipe left to return.\nSwipe down for the AKC.", Toast.LENGTH_SHORT).show();
         swipe = new Swipe();
         swipe.setListener(new SwipeListener() {
@@ -78,11 +78,27 @@ public class BreedDetailsActivity extends AppCompatActivity {
         if (intent != null) {
             uriName = intent.getStringExtra("Name");
             TextView name = findViewById(R.id.text1);
-            TextView description = findViewById(R.id.text2);
+            TextView group = findViewById(R.id.GroupTextView);
+            TextView size = findViewById(R.id.SizeTextView);
+            TextView coat = findViewById(R.id.CoatTextView);
+            TextView shedding = findViewById(R.id.SheddingTextView);
+            TextView hypoallergenic = findViewById(R.id.HypoallergenicTextView);
+            TextView trainability = findViewById(R.id.TrainabiltyTextView);
+            TextView grooming = findViewById(R.id.GroomingTextView);
+            TextView barking = findViewById(R.id.BarkingTextView);
+            TextView energy = findViewById(R.id.EnergyTextView);
+
             ImageView icon = findViewById(R.id.image);
             name.setText(intent.getCharSequenceExtra("Name"));
-            //getActionBar().setTitle(intent.getCharSequenceExtra("Name"));
-            description.setText(intent.getCharSequenceExtra("Description"));
+            group.setText(intent.getCharSequenceExtra("Group"));
+            size.setText(intent.getCharSequenceExtra("Size"));
+            coat.setText(intent.getCharSequenceExtra("Coat"));
+            shedding.setText(intent.getCharSequenceExtra("Shedding"));
+            hypoallergenic.setText(intent.getCharSequenceExtra("Hypoallergenic"));
+            trainability.setText(intent.getCharSequenceExtra("Trainability"));
+            grooming.setText(intent.getCharSequenceExtra("Grooming"));
+            barking.setText(intent.getCharSequenceExtra("Barking"));
+            energy.setText(intent.getCharSequenceExtra("Energy"));
         }
     }
     @Override
